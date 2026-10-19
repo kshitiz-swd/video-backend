@@ -4,14 +4,14 @@ import { upload } from '../middlewares/multer.js'
 
 const router = express.Router()
 
-router.post('/register',upload.fields([
+router.post('/register', upload.fields([
     {
-        name:'avatar',
-        maxCount:1
+        name: 'avatar',
+        maxCount: 1
     },
     {
-        name:'coverIamge',
-        maxCount:1
+        name: 'coverImage',
+        maxCount: 1
     }
 ]), registerUser)
 
