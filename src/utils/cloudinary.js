@@ -20,4 +20,14 @@ export const uploadOnCloudinary = async (localFilePath) => {
         fs.unlinkSync(localFilePath)
         return null
     }
-} 
+}
+
+export const deleteOnCloudinary = async (publicId) => {
+    try {
+        cloudinary.uploader.destroy(publicId, {
+            resource_type: "auto"
+        })
+    } catch (error) {
+        return null
+    }
+}

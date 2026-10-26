@@ -23,8 +23,14 @@ const userSchema = new Schema({
     avatar: {
         type: String,
     },
+    avatarPublicId: {
+        type: String,
+    },
     coverImage: {
         type: String,
+    },
+    coverImagePublicId: {
+        type: String
     },
     password: {
         type: String,
@@ -42,7 +48,7 @@ const userSchema = new Schema({
 
 
 userSchema.pre("save", async function () {
-    if(!this.isModified("password")) return
+    if (!this.isModified("password")) return
 
     this.password = await bcrypt.hash(this.password, 10)
 })
